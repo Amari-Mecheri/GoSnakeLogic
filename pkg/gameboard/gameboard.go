@@ -339,15 +339,15 @@ func (aGameBoard *gameBoard) actualMove(position common.Position, oldValue rune)
 
 	// Remove the tail
 	err = aGameBoard.setCell(oldTail, FreeSpace)
-	// The head and the tail have been updated
+	// The tail and the head have been updated
 	return []common.Sprite{
-		{
-			Value:    SnakePart,
-			Position: position,
-		},
 		{
 			Value:    FreeSpace,
 			Position: oldTail,
+		},
+		{
+			Value:    SnakePart,
+			Position: position,
 		},
 	}, err
 }
