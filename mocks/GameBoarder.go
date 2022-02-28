@@ -198,6 +198,27 @@ func (_m *GameBoarder) SetSnakeDirection(direction common.Direction) {
 	_m.Called(direction)
 }
 
+// SnakeDirection provides a mock function with given fields:
+func (_m *GameBoarder) SnakeDirection() (common.Direction, error) {
+	ret := _m.Called()
+
+	var r0 common.Direction
+	if rf, ok := ret.Get(0).(func() common.Direction); ok {
+		r0 = rf()
+	} else {
+		r0 = ret.Get(0).(common.Direction)
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func() error); ok {
+		r1 = rf()
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
 // SnakePosition provides a mock function with given fields:
 func (_m *GameBoarder) SnakePosition() (common.Position, error) {
 	ret := _m.Called()

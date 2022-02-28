@@ -36,6 +36,7 @@ type GameBoarder interface {
 	CreateSnake(position common.Position,
 		direction common.Direction) (sprite common.Sprite, err error)
 	SnakePosition() (position common.Position, err error)
+	SnakeDirection() (direction common.Direction, err error)
 	IsCandy(ch rune) bool
 	CandyPosition() common.Position
 	CandyAlive() bool
@@ -139,6 +140,12 @@ func (aGameBoard *gameBoard) SnakePosition() (position common.Position, err erro
 	defer common.ErrorWrapper(common.GetCurrentFuncName(), &err)
 
 	return aGameBoard.movingSnake.Position()
+}
+
+func (aGameBoard *gameBoard) SnakeDirection() (direction common.Direction, err error) {
+	defer common.ErrorWrapper(common.GetCurrentFuncName(), &err)
+
+	return aGameBoard.movingSnake.Direction()
 }
 
 func (aGameBoard *gameBoard) CandyPosition() common.Position {

@@ -11,6 +11,7 @@ type Snaker interface {
 	Size() (size int, err error)
 	SetDirection(direction common.Direction)
 	Position() (position common.Position, err error)
+	Direction() (direction common.Direction, err error)
 	Tail() (tail common.Position, err error)
 	NextMove() (nextPosition common.Position, err error)
 	MoveTo(newPosition common.Position) (theTail common.Position, err error)
@@ -38,6 +39,12 @@ func (aSnake *snake) Size() (size int, err error) {
 
 func (aSnake *snake) SetDirection(direction common.Direction) {
 	aSnake.direction = direction
+}
+
+func (aSnake *snake) Direction() (direction common.Direction, err error) {
+	defer common.ErrorWrapper(common.GetCurrentFuncName(), &err)
+
+	return aSnake.direction, nil
 }
 
 func (aSnake *snake) Position() (position common.Position, err error) {

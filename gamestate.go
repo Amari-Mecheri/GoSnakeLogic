@@ -28,6 +28,7 @@ type GameStater interface {
 	MoveUp()
 	BoardSize() common.Size
 	SnakePosition() (position common.Position, err error)
+	SnakeDirection() (direction common.Direction, err error)
 	SnakeSize() (size int, err error)
 }
 
